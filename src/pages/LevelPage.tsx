@@ -7,6 +7,7 @@ import { levels } from '@/data/levels';
 import { QuizGame } from '@/components/games/QuizGame';
 import { DragDropGame } from '@/components/games/DragDropGame';
 import { WordSearchGame } from '@/components/games/WordSearchGame';
+import { ImageFindGame } from '@/components/games/ImageFindGame';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -71,6 +72,8 @@ export default function LevelPage() {
         return level.dragItems ? <DragDropGame items={level.dragItems} onComplete={handleGameComplete} /> : null;
       case 'wordsearch':
         return level.words ? <WordSearchGame words={level.words} onComplete={handleGameComplete} /> : null;
+      case 'imagefind':
+        return level.imageItems ? <ImageFindGame items={level.imageItems} onComplete={handleGameComplete} /> : null;
       case 'final':
         return <QuizGame questions={level.quiz} onComplete={handleGameComplete} />;
       default:
