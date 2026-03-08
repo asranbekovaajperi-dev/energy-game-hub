@@ -57,6 +57,16 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        electric: {
+          glow: "hsl(var(--electric-glow))",
+          blue: "hsl(var(--electric-blue))",
+          cyan: "hsl(var(--electric-cyan))",
+        },
+        level: {
+          locked: "hsl(var(--level-locked))",
+          active: "hsl(var(--level-active))",
+          complete: "hsl(var(--level-complete))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
