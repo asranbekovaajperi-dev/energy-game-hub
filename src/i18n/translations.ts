@@ -26,6 +26,7 @@ export const translations = {
   dragHere: { kg: 'Бул жерге сүйрөңүз', ru: 'Перетащите сюда', en: 'Drag here' },
   findWords: { kg: 'Сөздөрдү табыңыз', ru: 'Найдите слова', en: 'Find the words' },
   questionsOf: { kg: 'суроо', ru: 'вопрос из', en: 'question of' },
+  findImages: { kg: 'Сүрөттөрдү табыңыз', ru: 'Найдите картинки', en: 'Find the images' },
 } as const;
 
 export type TranslationKey = keyof typeof translations;
