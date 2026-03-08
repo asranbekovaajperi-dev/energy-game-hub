@@ -26,10 +26,10 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
     });
   }, []);
 
-  const isUnlocked = useCallback((id: number) => {
-    if (id === 1) return true;
-    return completedLevels.includes(id - 1);
-  }, [completedLevels]);
+  // All levels are unlocked by default
+  const isUnlocked = useCallback((_id: number) => {
+    return true;
+  }, []);
 
   const isCompleted = useCallback((id: number) => completedLevels.includes(id), [completedLevels]);
 
