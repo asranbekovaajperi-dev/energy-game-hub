@@ -459,7 +459,7 @@ export const levels: LevelData[] = [
     words: { kg: ['РОЗЕТКА', 'КООПСУЗ', 'АВТОМАТ', 'ЗЫМ', 'ЭСЕПТЕГИЧ'], ru: ['РОЗЕТКА', 'БЕЗОПАСНОСТЬ', 'АВТОМАТ', 'ПРОВОД', 'СЧЁТЧИК'], en: ['OUTLET', 'SAFETY', 'BREAKER', 'WIRE', 'METER'] },
   },
   {
-    id: 8, icon: '🏭', color: 'from-slate-500 to-gray-400',
+    id: 8, icon: '🏭', characterImage: char8, color: 'from-slate-500 to-gray-400',
     title: { kg: 'Электр станциялары', ru: 'Электростанции', en: 'Power Plants' },
     subtitle: { kg: 'ГЭС, ТЭС, АЭС', ru: 'ГЭС, ТЭС, АЭС', en: 'HEP, TPP, NPP' },
     theory: {
@@ -524,7 +524,7 @@ export const levels: LevelData[] = [
     ],
   },
   {
-    id: 9, icon: '🌍', color: 'from-green-500 to-lime-400',
+    id: 9, icon: '🌍', characterImage: char9, color: 'from-green-500 to-lime-400',
     title: { kg: 'Электр жана экология', ru: 'Электричество и экология', en: 'Electricity & Ecology' },
     subtitle: { kg: 'Жашыл энергия, үнөмдөө', ru: 'Зелёная энергия, экономия', en: 'Green energy, saving' },
     theory: {
@@ -584,7 +584,7 @@ export const levels: LevelData[] = [
     words: { kg: ['ЭКОЛОГИЯ', 'ҮНӨМДӨӨ', 'ЖАШЫЛ', 'ЭНЕРГИЯ', 'ПАНЕЛ'], ru: ['ЭКОЛОГИЯ', 'ЭКОНОМИЯ', 'ЗЕЛЁНАЯ', 'ЭНЕРГИЯ', 'ПАНЕЛЬ'], en: ['ECOLOGY', 'SAVING', 'GREEN', 'ENERGY', 'PANEL'] },
   },
   {
-    id: 10, icon: '🔧', color: 'from-red-500 to-orange-400',
+    id: 10, icon: '🔧', characterImage: char10, color: 'from-red-500 to-orange-400',
     title: { kg: 'Электр аспаптары', ru: 'Электрические приборы', en: 'Electric Devices' },
     subtitle: { kg: 'Мотор, генератор, трансформатор', ru: 'Мотор, генератор, трансформатор', en: 'Motor, generator, transformer' },
     theory: {
@@ -659,7 +659,7 @@ export const levels: LevelData[] = [
     ],
   },
   {
-    id: 11, icon: '📡', color: 'from-violet-500 to-purple-400',
+    id: 11, icon: '📡', characterImage: char11, color: 'from-violet-500 to-purple-400',
     title: { kg: 'Электр жана технология', ru: 'Электричество и технологии', en: 'Electricity & Technology' },
     subtitle: { kg: 'Компьютер, телефон, интернет', ru: 'Компьютер, телефон, интернет', en: 'Computer, phone, internet' },
     theory: {
@@ -751,7 +751,7 @@ export const levels: LevelData[] = [
     ],
   },
   {
-    id: 12, icon: '🎓', color: 'from-yellow-500 to-red-500',
+    id: 12, icon: '🎓', characterImage: char12, color: 'from-yellow-500 to-red-500',
     title: { kg: 'Жыйынтык', ru: 'Итоговый', en: 'Final' },
     subtitle: { kg: 'Бардык билимди бышыктоо', ru: 'Закрепление всех знаний', en: 'Consolidate all knowledge' },
     theory: {
