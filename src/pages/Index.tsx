@@ -2,9 +2,11 @@ import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useProgress } from '@/contexts/ProgressContext';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
+import { WaterCycleAnimation } from '@/components/WaterCycleAnimation';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { Zap, Play } from 'lucide-react';
+import char1 from '@/assets/characters/level1-electricity.png';
 
 const Index = () => {
   const { t } = useLanguage();
@@ -12,9 +14,12 @@ const Index = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col relative overflow-hidden">
+      {/* Water cycle / electric atmosphere animation */}
+      <WaterCycleAnimation />
+
       {/* Header */}
-      <header className="flex items-center justify-between px-6 py-4">
+      <header className="relative z-10 flex items-center justify-between px-6 py-4">
         <div className="flex items-center gap-2">
           <Zap className="h-6 w-6 text-secondary" />
           <span className="font-bold text-lg">{t('appTitle')}</span>
@@ -23,21 +28,25 @@ const Index = () => {
       </header>
 
       {/* Hero */}
-      <main className="flex-1 flex items-center justify-center px-6">
+      <main className="relative z-10 flex-1 flex items-center justify-center px-6">
         <div className="max-w-2xl text-center space-y-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
+            {/* 3D Character mascot */}
             <div className="mb-6 inline-flex items-center justify-center">
-              <motion.div
-                animate={{ rotate: [0, 10, -10, 0], scale: [1, 1.1, 1] }}
+              <motion.img
+                src={char1}
+                alt="Electric mascot"
+                className="w-32 h-32 object-contain drop-shadow-2xl"
+                animate={{
+                  y: [0, -10, 0],
+                  rotate: [0, 3, -3, 0],
+                }}
                 transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
-                className="text-8xl"
-              >
-                ⚡
-              </motion.div>
+              />
             </div>
 
             <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-4">
@@ -75,7 +84,7 @@ const Index = () => {
             )}
           </motion.div>
 
-          {/* Floating icons */}
+          {/* Floating character icons */}
           <div className="relative h-20">
             {['💡', '🔋', '🔌', '⚙️', '🌍'].map((emoji, i) => (
               <motion.span

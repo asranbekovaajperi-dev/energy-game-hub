@@ -65,7 +65,14 @@ export default function LevelMap() {
 
                   <div className="p-5">
                     <div className="flex items-start justify-between mb-3">
-                      <span className="text-3xl">{level.icon}</span>
+                      {/* Character image instead of just emoji */}
+                      <motion.img
+                        src={level.characterImage}
+                        alt={level.title[lang]}
+                        className="w-14 h-14 object-contain"
+                        animate={unlocked ? { y: [0, -3, 0] } : {}}
+                        transition={{ repeat: Infinity, duration: 2, delay: i * 0.2 }}
+                      />
                       {completed ? (
                         <CheckCircle className="h-6 w-6 text-green-500" />
                       ) : !unlocked ? (
