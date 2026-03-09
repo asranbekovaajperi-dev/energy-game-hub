@@ -8,6 +8,7 @@ import { QuizGame } from '@/components/games/QuizGame';
 import { DragDropGame } from '@/components/games/DragDropGame';
 import { WordSearchGame } from '@/components/games/WordSearchGame';
 import { ImageFindGame } from '@/components/games/ImageFindGame';
+import { ImageMatchGame } from '@/components/games/ImageMatchGame';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -74,6 +75,8 @@ export default function LevelPage() {
         return level.words ? <WordSearchGame words={level.words} onComplete={handleGameComplete} /> : null;
       case 'imagefind':
         return level.imageItems ? <ImageFindGame items={level.imageItems} onComplete={handleGameComplete} /> : null;
+      case 'imagematch':
+        return level.imageMatchItems ? <ImageMatchGame items={level.imageMatchItems} onComplete={handleGameComplete} /> : null;
       case 'final':
         return <QuizGame questions={level.quiz} onComplete={handleGameComplete} />;
       default:
@@ -97,6 +100,25 @@ export default function LevelPage() {
       </header>
 
       <main className="max-w-3xl mx-auto px-6 py-8">
+        {/* Character mascot */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="flex items-center gap-4 mb-6"
+        >
+          <motion.img
+            src={level.characterImage}
+            alt={level.title[lang]}
+            className="w-20 h-20 object-contain drop-shadow-lg"
+            animate={{ y: [0, -5, 0] }}
+            transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
+          />
+          <div>
+            <h2 className="text-xl font-bold">{level.title[lang]}</h2>
+            <p className="text-sm text-muted-foreground">{level.subtitle[lang]}</p>
+          </div>
+        </motion.div>
+
         {/* Level color bar */}
         <div className={`h-1.5 rounded-full bg-gradient-to-r ${level.color} mb-8`} />
 
@@ -110,6 +132,16 @@ export default function LevelPage() {
 
           <TabsContent value="theory">
             <Card className="p-6">
+              {/* Character in theory section */}
+              <div className="flex justify-center mb-4">
+                <motion.img
+                  src={level.characterImage}
+                  alt=""
+                  className="w-24 h-24 object-contain opacity-80"
+                  animate={{ rotate: [0, 3, -3, 0] }}
+                  transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
+                />
+              </div>
               <div className="space-y-4">
                 {level.theory[lang].map((text, i) => (
                   <motion.p
@@ -157,6 +189,13 @@ export default function LevelPage() {
                   animate={{ opacity: 1, scale: 1 }}
                   className="text-center space-y-6 py-8"
                 >
+                  <motion.img
+                    src={level.characterImage}
+                    alt=""
+                    className="mx-auto w-24 h-24 object-contain"
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{ repeat: Infinity, duration: 1.5 }}
+                  />
                   <Trophy className="mx-auto h-16 w-16 text-secondary" />
                   <h3 className="text-2xl font-bold">{t('congrats')}</h3>
                   <p className="text-lg">{t('score')}: {testScore} / {level.quiz.length}</p>
