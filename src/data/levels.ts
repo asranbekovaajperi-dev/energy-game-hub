@@ -1,23 +1,47 @@
 import { Language } from '@/i18n/translations';
 
+// Character image imports
+import char1 from '@/assets/characters/level1-electricity.png';
+import char2 from '@/assets/characters/level2-sources.png';
+import char3 from '@/assets/characters/level3-current.png';
+import char4 from '@/assets/characters/level4-circuit.png';
+import char5 from '@/assets/characters/level5-units.png';
+import char6 from '@/assets/characters/level6-ohm.png';
+import char7 from '@/assets/characters/level7-home.png';
+import char8 from '@/assets/characters/level8-stations.png';
+import char9 from '@/assets/characters/level9-ecology.png';
+import char10 from '@/assets/characters/level10-devices.png';
+import char11 from '@/assets/characters/level11-tech.png';
+import char12 from '@/assets/characters/level12-final.png';
+
+export const characterImages = [char1, char2, char3, char4, char5, char6, char7, char8, char9, char10, char11, char12];
+
+export interface ImageMatchItem {
+  image: string;
+  label: Record<Language, string>;
+  description: Record<Language, string>;
+}
+
 export interface LevelData {
   id: number;
   icon: string;
+  characterImage: string;
   title: Record<Language, string>;
   subtitle: Record<Language, string>;
   color: string;
   theory: Record<Language, string[]>;
   visual: Record<Language, string[]>;
-  gameType: 'quiz' | 'drag' | 'wordsearch' | 'imagefind' | 'final';
+  gameType: 'quiz' | 'drag' | 'wordsearch' | 'imagefind' | 'imagematch' | 'final';
   quiz: { question: Record<Language, string>; options: Record<Language, string[]>; correct: number }[];
   dragItems?: { item: Record<Language, string>; target: Record<Language, string> }[];
   words?: Record<Language, string[]>;
   imageItems?: { emoji: string; label: Record<Language, string>; correct: boolean }[];
+  imageMatchItems?: ImageMatchItem[];
 }
 
 export const levels: LevelData[] = [
   {
-    id: 1, icon: '⚡', color: 'from-blue-500 to-cyan-400',
+    id: 1, icon: '⚡', characterImage: char1, color: 'from-blue-500 to-cyan-400',
     title: { kg: 'Электр деген эмне?', ru: 'Что такое электричество?', en: 'What is Electricity?' },
     subtitle: { kg: 'Негизги түшүнүк', ru: 'Основные понятия', en: 'Basic concepts' },
     theory: {
@@ -78,7 +102,7 @@ export const levels: LevelData[] = [
     ],
   },
   {
-    id: 2, icon: '🔋', color: 'from-green-500 to-emerald-400',
+    id: 2, icon: '🔋', characterImage: char2, color: 'from-green-500 to-emerald-400',
     title: { kg: 'Электр энергиянын булактары', ru: 'Источники электроэнергии', en: 'Sources of Electricity' },
     subtitle: { kg: 'Суу, шамал, күн, атом', ru: 'Вода, ветер, солнце, атом', en: 'Water, wind, sun, atom' },
     theory: {
@@ -141,7 +165,7 @@ export const levels: LevelData[] = [
     ],
   },
   {
-    id: 3, icon: '💡', color: 'from-yellow-400 to-orange-400',
+    id: 3, icon: '💡', characterImage: char3, color: 'from-yellow-400 to-orange-400',
     title: { kg: 'Токтун түрлөрү', ru: 'Виды тока', en: 'Types of Current' },
     subtitle: { kg: 'Туруктуу жана өзгөрмө ток', ru: 'Постоянный и переменный ток', en: 'DC and AC current' },
     theory: {
@@ -191,7 +215,7 @@ export const levels: LevelData[] = [
     ],
   },
   {
-    id: 4, icon: '🔌', color: 'from-purple-500 to-pink-400',
+    id: 4, icon: '🔌', characterImage: char4, color: 'from-purple-500 to-pink-400',
     title: { kg: 'Электр чынжыры', ru: 'Электрическая цепь', en: 'Electric Circuit' },
     subtitle: { kg: 'Жөнөкөй электр чынжыры', ru: 'Простая электрическая цепь', en: 'Simple electric circuit' },
     theory: {
@@ -248,7 +272,7 @@ export const levels: LevelData[] = [
     ],
   },
   {
-    id: 5, icon: '📏', color: 'from-teal-500 to-cyan-400',
+    id: 5, icon: '📏', characterImage: char5, color: 'from-teal-500 to-cyan-400',
     title: { kg: 'Өлчөө бирдиктери', ru: 'Единицы измерения', en: 'Units of Measurement' },
     subtitle: { kg: 'Вольт, Ампер, Ом, Ватт', ru: 'Вольт, Ампер, Ом, Ватт', en: 'Volt, Ampere, Ohm, Watt' },
     theory: {
@@ -305,7 +329,7 @@ export const levels: LevelData[] = [
     ],
   },
   {
-    id: 6, icon: '⚖️', color: 'from-indigo-500 to-blue-400',
+    id: 6, icon: '⚖️', characterImage: char6, color: 'from-indigo-500 to-blue-400',
     title: { kg: 'Ом мыйзамы', ru: 'Закон Ома', en: "Ohm's Law" },
     subtitle: { kg: 'Формула, эсептөөлөр', ru: 'Формула, расчёты', en: 'Formula, calculations' },
     theory: {
@@ -362,7 +386,7 @@ export const levels: LevelData[] = [
     words: { kg: ['ВОЛЬТ', 'АМПЕР', 'ОМ', 'ТОК', 'ЗАРЯД', 'ЧЫНЖЫР'], ru: ['ВОЛЬТ', 'АМПЕР', 'ОМ', 'ТОК', 'ЗАРЯД', 'ЦЕПЬ'], en: ['VOLT', 'AMPERE', 'OHM', 'CURRENT', 'CHARGE', 'CIRCUIT'] },
   },
   {
-    id: 7, icon: '🏠', color: 'from-amber-500 to-yellow-400',
+    id: 7, icon: '🏠', characterImage: char7, color: 'from-amber-500 to-yellow-400',
     title: { kg: 'Үйдөгү электр', ru: 'Электричество дома', en: 'Electricity at Home' },
     subtitle: { kg: 'Розетка, коопсуздук', ru: 'Розетка, безопасность', en: 'Outlets, safety' },
     theory: {
