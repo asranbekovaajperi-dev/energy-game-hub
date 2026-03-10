@@ -28,6 +28,7 @@ export const translations = {
   questionsOf: { kg: 'суроо', ru: 'вопрос из', en: 'question of' },
   findImages: { kg: 'Сүрөттөрдү табыңыз', ru: 'Найдите картинки', en: 'Find the images' },
   matchImages: { kg: 'Сүрөттөрдү дал келтириңиз', ru: 'Сопоставьте картинки', en: 'Match the images' },
+  historyLevel: { kg: 'Электрдин тарыхы', ru: 'История электричества', en: 'History of Electricity' },
 } as const;
 
 export type TranslationKey = keyof typeof translations;

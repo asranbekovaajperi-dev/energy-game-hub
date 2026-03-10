@@ -202,7 +202,7 @@ export default function LevelPage() {
                   {testScore >= Math.ceil(level.quiz.length * 0.5) ? (
                     <div className="space-y-3">
                       <p className="text-green-600 font-medium">{t('passedLevel')}</p>
-                      {levelId < 12 && (
+                      {levelId < 13 && (
                         <Button onClick={() => navigate(`/level/${levelId + 1}`)} className="electric-gradient text-primary-foreground">
                           {t('nextLevel')} <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
