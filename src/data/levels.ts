@@ -1,4 +1,6 @@
 import { Language } from '@/i18n/translations';
+import { CategoryItem } from '@/components/games/CategoryGame';
+import { categoryItems1, categoryItems2, categoryItems3, categoryItems4, categoryItems5, categoryItems6, categoryItems7, categoryItems8, categoryItems9, categoryItems10, categoryItems11, categoryItems12, categoryItems13 } from './categoryData';
 
 // Character image imports
 import char1 from '@/assets/characters/level1-electricity.png';
@@ -38,6 +40,7 @@ export interface LevelData {
   words?: Record<Language, string[]>;
   imageItems?: { emoji: string; label: Record<Language, string>; correct: boolean }[];
   imageMatchItems?: ImageMatchItem[];
+  categoryItems?: CategoryItem[];
 }
 
 export const levels: LevelData[] = [
@@ -121,6 +124,7 @@ export const levels: LevelData[] = [
       { question: { kg: 'Кайсы бөлүкчө эң жеңил?', ru: 'Какая частица самая лёгкая?', en: 'Which particle is the lightest?' }, options: { kg: ['Электрон', 'Протон', 'Нейтрон', 'Атом'], ru: ['Электрон', 'Протон', 'Нейтрон', 'Атом'], en: ['Electron', 'Proton', 'Neutron', 'Atom'] }, correct: 0 },
       { question: { kg: 'Электр тогу адам үчүн коркунучтуубу?', ru: 'Опасен ли электрический ток для человека?', en: 'Is electric current dangerous for humans?' }, options: { kg: ['Ооба, абдан коркунучтуу', 'Жок', 'Бир аз гана', 'Эч качан'], ru: ['Да, очень опасен', 'Нет', 'Чуть-чуть', 'Никогда'], en: ['Yes, very dangerous', 'No', 'A little bit', 'Never'] }, correct: 0 },
     ],
+    categoryItems: categoryItems1,
   },
   {
     id: 2, icon: '🔋', characterImage: char2, color: 'from-green-500 to-emerald-400',
@@ -481,6 +485,7 @@ export const levels: LevelData[] = [
       { question: { kg: 'Каршылык 50Ом, ток 2А. Чыңалуу канча?', ru: 'Сопротивление 50Ом, ток 2А. Напряжение?', en: 'Resistance 50Ω, current 2A. Voltage?' }, options: { kg: ['100В', '25В', '52В', '48В'], ru: ['100В', '25В', '52В', '48В'], en: ['100V', '25V', '52V', '48V'] }, correct: 0 },
     ],
     words: { kg: ['ВОЛЬТ', 'АМПЕР', 'ОМ', 'ТОК', 'ЗАРЯД', 'ЧЫНЖЫР'], ru: ['ВОЛЬТ', 'АМПЕР', 'ОМ', 'ТОК', 'ЗАРЯД', 'ЦЕПЬ'], en: ['VOLT', 'AMPERE', 'OHM', 'CURRENT', 'CHARGE', 'CIRCUIT'] },
+    categoryItems: categoryItems6,
   },
   {
     id: 7, icon: '🏠', characterImage: char7, color: 'from-amber-500 to-yellow-400',
@@ -554,6 +559,7 @@ export const levels: LevelData[] = [
       { question: { kg: 'Адам токко урунса эмне кылуу керек?', ru: 'Что делать если человек попал под ток?', en: 'What to do if someone gets electrocuted?' }, options: { kg: ['Адегенде токту өчүрүү', 'Колдор менен тартуу', 'Суу куюу', 'Күтүп туруу'], ru: ['Сначала отключить ток', 'Тянуть руками', 'Полить водой', 'Подождать'], en: ['First turn off power', 'Pull with hands', 'Pour water', 'Wait'] }, correct: 0 },
     ],
     words: { kg: ['РОЗЕТКА', 'КООПСУЗ', 'АВТОМАТ', 'ЗЫМ', 'ЭСЕПТЕГИЧ'], ru: ['РОЗЕТКА', 'БЕЗОПАСНОСТЬ', 'АВТОМАТ', 'ПРОВОД', 'СЧЁТЧИК'], en: ['OUTLET', 'SAFETY', 'BREAKER', 'WIRE', 'METER'] },
+    categoryItems: categoryItems7,
   },
   {
     id: 8, icon: '🏭', characterImage: char8, color: 'from-slate-500 to-gray-400',
@@ -679,6 +685,7 @@ export const levels: LevelData[] = [
       { question: { kg: 'Электр үнөмдөөнүн жолу кайсы?', ru: 'Какой способ экономии электричества?', en: 'How to save electricity?' }, options: { kg: ['Колдонбогонду розеткадан суу', 'Баарын күйгүзүп коюу', 'Кадимки лампочка колдонуу', 'Терезени ачуу'], ru: ['Вынимать неиспользуемые из розетки', 'Включить всё', 'Использовать обычные лампочки', 'Открыть окна'], en: ['Unplug unused devices', 'Turn everything on', 'Use regular bulbs', 'Open windows'] }, correct: 0 },
     ],
     words: { kg: ['ЭКОЛОГИЯ', 'ҮНӨМДӨӨ', 'ЖАШЫЛ', 'ЭНЕРГИЯ', 'ПАНЕЛ'], ru: ['ЭКОЛОГИЯ', 'ЭКОНОМИЯ', 'ЗЕЛЁНАЯ', 'ЭНЕРГИЯ', 'ПАНЕЛЬ'], en: ['ECOLOGY', 'SAVING', 'GREEN', 'ENERGY', 'PANEL'] },
+    categoryItems: categoryItems9,
   },
   {
     id: 10, icon: '🔧', characterImage: char10, color: 'from-red-500 to-orange-400',
