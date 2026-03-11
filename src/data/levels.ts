@@ -1,4 +1,5 @@
 import { Language } from '@/i18n/translations';
+import { CategoryItem } from '@/components/games/CategoryGame';
 
 // Character image imports
 import char1 from '@/assets/characters/level1-electricity.png';
