@@ -65,56 +65,30 @@ export function MixedQuizGame({ questions, onComplete }: MixedQuizGameProps) {
   };
 
   const renderTrueFalse = () => {
-    // Show first option as the "statement", ask true/false
-    const statement = q.options[lang][q.correct];
-    const allOptions = q.options[lang];
-    const wrongOption = allOptions.find((_, i) => i !== q.correct) || allOptions[1];
-    // Randomly show correct or wrong statement
-    const showCorrectStatement = current % 2 === 0;
-    const displayStatement = showCorrectStatement ? statement : wrongOption;
-    const correctAnswer = showCorrectStatement ? 0 : 1;
-
+    // Show the correct answer as statement, user picks correct option from list
     return (
       <div className="space-y-4">
         <Card className="p-6 text-center bg-muted/50">
-          <p className="text-sm text-muted-foreground mb-2">{q.question[lang]}</p>
-          <p className="text-lg font-bold">"{displayStatement}"</p>
+          <div className="text-3xl mb-2">❓</div>
+          <h3 className="text-lg font-semibold">{q.question[lang]}</h3>
         </Card>
         <div className="grid grid-cols-2 gap-3">
-          <Button
-            variant="outline"
-            className={`h-16 text-lg gap-2 ${
-              showResult
-                ? correctAnswer === 0
-                  ? 'border-green-500 bg-green-500/10'
-                  : selected === 0
-                  ? 'border-destructive bg-destructive/10'
-                  : ''
-                : 'hover:border-green-500 hover:bg-green-500/5'
-            }`}
-            onClick={() => handleSelect(correctAnswer === 0 ? q.correct : (q.correct === 0 ? 1 : 0))}
-            disabled={selected !== null}
-          >
-            <ThumbsUp className="h-5 w-5" />
-            {lang === 'kg' ? 'Туура' : lang === 'ru' ? 'Верно' : 'True'}
-          </Button>
-          <Button
-            variant="outline"
-            className={`h-16 text-lg gap-2 ${
-              showResult
-                ? correctAnswer === 1
-                  ? 'border-green-500 bg-green-500/10'
-                  : selected !== null && correctAnswer !== 1
-                  ? 'border-destructive bg-destructive/10'
-                  : ''
-                : 'hover:border-destructive hover:bg-destructive/5'
-            }`}
-            onClick={() => handleSelect(correctAnswer === 1 ? q.correct : (q.correct === 0 ? 1 : 0))}
-            disabled={selected !== null}
-          >
-            <ThumbsDown className="h-5 w-5" />
-            {lang === 'kg' ? 'Ката' : lang === 'ru' ? 'Неверно' : 'False'}
-          </Button>
+          {q.options[lang].map((opt, idx) => (
+            <Button
+              key={idx}
+              variant="outline"
+              className={`h-auto py-4 px-4 text-sm gap-2 ${optionColors(idx)} ${
+                !showResult ? 'hover:border-primary hover:bg-primary/5' : ''
+              }`}
+              onClick={() => handleSelect(idx)}
+              disabled={selected !== null}
+            >
+              {idx === 0 ? <ThumbsUp className="h-4 w-4 shrink-0" /> : idx === 1 ? <ThumbsDown className="h-4 w-4 shrink-0" /> : null}
+              <span className="text-left">{opt}</span>
+              {showResult && idx === q.correct && <CheckCircle className="h-4 w-4 text-green-500 shrink-0" />}
+              {showResult && selected === idx && idx !== q.correct && <XCircle className="h-4 w-4 text-destructive shrink-0" />}
+            </Button>
+          ))}
         </div>
       </div>
     );
