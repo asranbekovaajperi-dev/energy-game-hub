@@ -1,5 +1,6 @@
 import { Language } from '@/i18n/translations';
 import { CategoryItem } from '@/components/games/CategoryGame';
+import { categoryItems1, categoryItems2, categoryItems3, categoryItems4, categoryItems5, categoryItems6, categoryItems7, categoryItems8, categoryItems9, categoryItems10, categoryItems11, categoryItems12, categoryItems13 } from './categoryData';
 
 // Character image imports
 import char1 from '@/assets/characters/level1-electricity.png';
