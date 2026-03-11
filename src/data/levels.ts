@@ -559,6 +559,7 @@ export const levels: LevelData[] = [
       { question: { kg: 'Адам токко урунса эмне кылуу керек?', ru: 'Что делать если человек попал под ток?', en: 'What to do if someone gets electrocuted?' }, options: { kg: ['Адегенде токту өчүрүү', 'Колдор менен тартуу', 'Суу куюу', 'Күтүп туруу'], ru: ['Сначала отключить ток', 'Тянуть руками', 'Полить водой', 'Подождать'], en: ['First turn off power', 'Pull with hands', 'Pour water', 'Wait'] }, correct: 0 },
     ],
     words: { kg: ['РОЗЕТКА', 'КООПСУЗ', 'АВТОМАТ', 'ЗЫМ', 'ЭСЕПТЕГИЧ'], ru: ['РОЗЕТКА', 'БЕЗОПАСНОСТЬ', 'АВТОМАТ', 'ПРОВОД', 'СЧЁТЧИК'], en: ['OUTLET', 'SAFETY', 'BREAKER', 'WIRE', 'METER'] },
+    categoryItems: categoryItems7,
   },
   {
     id: 8, icon: '🏭', characterImage: char8, color: 'from-slate-500 to-gray-400',
