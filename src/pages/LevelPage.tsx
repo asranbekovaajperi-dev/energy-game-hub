@@ -4,16 +4,21 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { useProgress } from '@/contexts/ProgressContext';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { levels } from '@/data/levels';
+import { categoryItems1, categoryItems2, categoryItems3, categoryItems4, categoryItems5, categoryItems6, categoryItems7, categoryItems8, categoryItems9, categoryItems10, categoryItems11, categoryItems12, categoryItems13 } from '@/data/categoryData';
 import { QuizGame } from '@/components/games/QuizGame';
+import { MixedQuizGame } from '@/components/games/MixedQuizGame';
 import { DragDropGame } from '@/components/games/DragDropGame';
 import { WordSearchGame } from '@/components/games/WordSearchGame';
 import { ImageFindGame } from '@/components/games/ImageFindGame';
 import { ImageMatchGame } from '@/components/games/ImageMatchGame';
+import { CategoryGame } from '@/components/games/CategoryGame';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, Zap, Trophy, ArrowRight } from 'lucide-react';
+import { ArrowLeft, Trophy, ArrowRight } from 'lucide-react';
+
+const categoryMap = [categoryItems1, categoryItems2, categoryItems3, categoryItems4, categoryItems5, categoryItems6, categoryItems7, categoryItems8, categoryItems9, categoryItems10, categoryItems11, categoryItems12, categoryItems13];
 
 export default function LevelPage() {
   const { id } = useParams();
@@ -52,6 +57,9 @@ export default function LevelPage() {
     }
   };
 
+  const levelIndex = levels.findIndex(l => l.id === levelId);
+  const catItems = levelIndex >= 0 && levelIndex < categoryMap.length ? categoryMap[levelIndex] : null;
+
   const renderGame = () => {
     if (gameCompleted) {
       return (
@@ -66,6 +74,12 @@ export default function LevelPage() {
       );
     }
 
+    // Always show CategoryGame with 25 items if available
+    if (catItems) {
+      return <CategoryGame items={catItems} onComplete={handleGameComplete} />;
+    }
+
+    // Fallback to original game types
     switch (level.gameType) {
       case 'quiz':
         return <QuizGame questions={level.quiz} onComplete={handleGameComplete} />;
@@ -100,26 +114,14 @@ export default function LevelPage() {
       </header>
 
       <main className="max-w-3xl mx-auto px-6 py-8">
-        {/* Character mascot */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="flex items-center gap-4 mb-6"
-        >
-          <motion.img
-            src={level.characterImage}
-            alt={level.title[lang]}
-            className="w-20 h-20 object-contain drop-shadow-lg"
-            animate={{ y: [0, -5, 0] }}
-            transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
-          />
+        <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="flex items-center gap-4 mb-6">
+          <motion.img src={level.characterImage} alt={level.title[lang]} className="w-20 h-20 object-contain drop-shadow-lg" animate={{ y: [0, -5, 0] }} transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }} />
           <div>
             <h2 className="text-xl font-bold">{level.title[lang]}</h2>
             <p className="text-sm text-muted-foreground">{level.subtitle[lang]}</p>
           </div>
         </motion.div>
 
-        {/* Level color bar */}
         <div className={`h-1.5 rounded-full bg-gradient-to-r ${level.color} mb-8`} />
 
         <Tabs defaultValue="theory" className="space-y-6">
@@ -132,27 +134,12 @@ export default function LevelPage() {
 
           <TabsContent value="theory">
             <Card className="p-6">
-              {/* Character in theory section */}
               <div className="flex justify-center mb-4">
-                <motion.img
-                  src={level.characterImage}
-                  alt=""
-                  className="w-24 h-24 object-contain opacity-80"
-                  animate={{ rotate: [0, 3, -3, 0] }}
-                  transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
-                />
+                <motion.img src={level.characterImage} alt="" className="w-24 h-24 object-contain opacity-80" animate={{ rotate: [0, 3, -3, 0] }} transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }} />
               </div>
               <div className="space-y-4">
                 {level.theory[lang].map((text, i) => (
-                  <motion.p
-                    key={i}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.1 }}
-                    className="text-base leading-relaxed"
-                  >
-                    {text}
-                  </motion.p>
+                  <motion.p key={i} initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.1 }} className="text-base leading-relaxed">{text}</motion.p>
                 ))}
               </div>
             </Card>
@@ -162,15 +149,7 @@ export default function LevelPage() {
             <Card className="p-6">
               <div className="space-y-4">
                 {level.visual[lang].map((text, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.15 }}
-                    className="p-4 rounded-xl bg-muted text-center text-lg font-mono"
-                  >
-                    {text}
-                  </motion.div>
+                  <motion.div key={i} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.15 }} className="p-4 rounded-xl bg-muted text-center text-lg font-mono">{text}</motion.div>
                 ))}
               </div>
             </Card>
@@ -183,19 +162,8 @@ export default function LevelPage() {
           <TabsContent value="test">
             <AnimatePresence mode="wait">
               {testCompleted ? (
-                <motion.div
-                  key="result"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="text-center space-y-6 py-8"
-                >
-                  <motion.img
-                    src={level.characterImage}
-                    alt=""
-                    className="mx-auto w-24 h-24 object-contain"
-                    animate={{ scale: [1, 1.1, 1] }}
-                    transition={{ repeat: Infinity, duration: 1.5 }}
-                  />
+                <motion.div key="result" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="text-center space-y-6 py-8">
+                  <motion.img src={level.characterImage} alt="" className="mx-auto w-24 h-24 object-contain" animate={{ scale: [1, 1.1, 1] }} transition={{ repeat: Infinity, duration: 1.5 }} />
                   <Trophy className="mx-auto h-16 w-16 text-secondary" />
                   <h3 className="text-2xl font-bold">{t('congrats')}</h3>
                   <p className="text-lg">{t('score')}: {testScore} / {level.quiz.length}</p>
@@ -216,7 +184,7 @@ export default function LevelPage() {
                 </motion.div>
               ) : (
                 <motion.div key="quiz" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                  <QuizGame questions={level.quiz} onComplete={handleTestComplete} />
+                  <MixedQuizGame questions={level.quiz} onComplete={handleTestComplete} />
                 </motion.div>
               )}
             </AnimatePresence>
