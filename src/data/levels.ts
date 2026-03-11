@@ -124,6 +124,7 @@ export const levels: LevelData[] = [
       { question: { kg: 'Кайсы бөлүкчө эң жеңил?', ru: 'Какая частица самая лёгкая?', en: 'Which particle is the lightest?' }, options: { kg: ['Электрон', 'Протон', 'Нейтрон', 'Атом'], ru: ['Электрон', 'Протон', 'Нейтрон', 'Атом'], en: ['Electron', 'Proton', 'Neutron', 'Atom'] }, correct: 0 },
       { question: { kg: 'Электр тогу адам үчүн коркунучтуубу?', ru: 'Опасен ли электрический ток для человека?', en: 'Is electric current dangerous for humans?' }, options: { kg: ['Ооба, абдан коркунучтуу', 'Жок', 'Бир аз гана', 'Эч качан'], ru: ['Да, очень опасен', 'Нет', 'Чуть-чуть', 'Никогда'], en: ['Yes, very dangerous', 'No', 'A little bit', 'Never'] }, correct: 0 },
     ],
+    categoryItems: categoryItems1,
   },
   {
     id: 2, icon: '🔋', characterImage: char2, color: 'from-green-500 to-emerald-400',
