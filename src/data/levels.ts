@@ -685,6 +685,7 @@ export const levels: LevelData[] = [
       { question: { kg: 'Электр үнөмдөөнүн жолу кайсы?', ru: 'Какой способ экономии электричества?', en: 'How to save electricity?' }, options: { kg: ['Колдонбогонду розеткадан суу', 'Баарын күйгүзүп коюу', 'Кадимки лампочка колдонуу', 'Терезени ачуу'], ru: ['Вынимать неиспользуемые из розетки', 'Включить всё', 'Использовать обычные лампочки', 'Открыть окна'], en: ['Unplug unused devices', 'Turn everything on', 'Use regular bulbs', 'Open windows'] }, correct: 0 },
     ],
     words: { kg: ['ЭКОЛОГИЯ', 'ҮНӨМДӨӨ', 'ЖАШЫЛ', 'ЭНЕРГИЯ', 'ПАНЕЛ'], ru: ['ЭКОЛОГИЯ', 'ЭКОНОМИЯ', 'ЗЕЛЁНАЯ', 'ЭНЕРГИЯ', 'ПАНЕЛЬ'], en: ['ECOLOGY', 'SAVING', 'GREEN', 'ENERGY', 'PANEL'] },
+    categoryItems: categoryItems9,
   },
   {
     id: 10, icon: '🔧', characterImage: char10, color: 'from-red-500 to-orange-400',
