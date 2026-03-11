@@ -485,6 +485,7 @@ export const levels: LevelData[] = [
       { question: { kg: 'Каршылык 50Ом, ток 2А. Чыңалуу канча?', ru: 'Сопротивление 50Ом, ток 2А. Напряжение?', en: 'Resistance 50Ω, current 2A. Voltage?' }, options: { kg: ['100В', '25В', '52В', '48В'], ru: ['100В', '25В', '52В', '48В'], en: ['100V', '25V', '52V', '48V'] }, correct: 0 },
     ],
     words: { kg: ['ВОЛЬТ', 'АМПЕР', 'ОМ', 'ТОК', 'ЗАРЯД', 'ЧЫНЖЫР'], ru: ['ВОЛЬТ', 'АМПЕР', 'ОМ', 'ТОК', 'ЗАРЯД', 'ЦЕПЬ'], en: ['VOLT', 'AMPERE', 'OHM', 'CURRENT', 'CHARGE', 'CIRCUIT'] },
+    categoryItems: categoryItems6,
   },
   {
     id: 7, icon: '🏠', characterImage: char7, color: 'from-amber-500 to-yellow-400',
