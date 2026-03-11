@@ -39,6 +39,7 @@ export interface LevelData {
   words?: Record<Language, string[]>;
   imageItems?: { emoji: string; label: Record<Language, string>; correct: boolean }[];
   imageMatchItems?: ImageMatchItem[];
+  categoryItems?: CategoryItem[];
 }
 
 export const levels: LevelData[] = [
