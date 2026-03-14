@@ -16,8 +16,9 @@ import char10 from '@/assets/characters/level10-devices.png';
 import char11 from '@/assets/characters/level11-tech.png';
 import char12 from '@/assets/characters/level12-final.png';
 import char13 from '@/assets/characters/level13-history.png';
+import char14 from '@/assets/characters/level14-exam.png';
 
-export const characterImages = [char1, char2, char3, char4, char5, char6, char7, char8, char9, char10, char11, char12, char13];
+export const characterImages = [char1, char2, char3, char4, char5, char6, char7, char8, char9, char10, char11, char12, char13, char14];
 
 export interface ImageMatchItem {
   image: string;
@@ -34,7 +35,7 @@ export interface LevelData {
   color: string;
   theory: Record<Language, string[]>;
   visual: Record<Language, string[]>;
-  gameType: 'quiz' | 'drag' | 'wordsearch' | 'imagefind' | 'imagematch' | 'final';
+  gameType: 'quiz' | 'drag' | 'wordsearch' | 'imagefind' | 'imagematch' | 'final' | 'exam';
   quiz: { question: Record<Language, string>; options: Record<Language, string[]>; correct: number }[];
   dragItems?: { item: Record<Language, string>; target: Record<Language, string> }[];
   words?: Record<Language, string[]>;
@@ -1064,5 +1065,43 @@ export const levels: LevelData[] = [
       { question: { kg: 'Бир чагылганда канча вольт болушу мүмкүн?', ru: 'Сколько вольт может быть в одной молнии?', en: 'How many volts can a lightning bolt contain?' }, options: { kg: ['1 миллиард', '1 миллион', '1000', '220'], ru: ['1 миллиард', '1 миллион', '1000', '220'], en: ['1 billion', '1 million', '1000', '220'] }, correct: 0 },
       { question: { kg: 'Кайсы өлкөдө биринчи электр станция курулган?', ru: 'В какой стране построена первая электростанция?', en: 'In which country was the first power station built?' }, options: { kg: ['АКШда', 'Англияда', 'Францияда', 'Германияда'], ru: ['В США', 'В Англии', 'Во Франции', 'В Германии'], en: ['In the USA', 'In England', 'In France', 'In Germany'] }, correct: 0 },
     ],
+  },
+  {
+    id: 14, icon: '🎓', characterImage: char14, color: 'from-purple-600 to-indigo-500',
+    title: { kg: 'Жыйынтык экзамен', ru: 'Итоговый экзамен', en: 'Final Exam' },
+    subtitle: { kg: '50 суроолук тест — 1 мүнөт ар бир суроого', ru: '50 вопросов — 1 минута на каждый', en: '50 questions — 1 minute each' },
+    theory: {
+      kg: [
+        '🎓 Бул жыйынтык экзамен! 1-13 баскычтардын бардык маалыматтарынан 50 суроо берилет.',
+        '⏱️ Ар бир суроого 60 секунд убакыт берилет. Убакыт бүткөндө кийинки суроого автоматтык түрдө өтөт.',
+        '📊 Жыйынтыгыңыз 50 упайдан эсептелет. 25+ упай алсаңыз — баскычты ийгиликтүү өтөсүз!',
+        '💪 Даярдануу үчүн мурунку 13 баскычтын теориясын жана тесттерин кайталаңыз.',
+        '🧠 Суроолор бардык темаларды камтыйт: электрдин негиздери, булактары, ток түрлөрү, чынжырлар, бирдиктер, Ом закону, үй электри, станциялар, экология, аппараттар, технология, жана тарых.',
+        '🏆 Ийгилик каалайбыз! Сиз — электр боюнча чыныгы эксперт болосуз!',
+      ],
+      ru: [
+        '🎓 Это итоговый экзамен! 50 вопросов из всех тем 1-13 уровней.',
+        '⏱️ На каждый вопрос даётся 60 секунд. Когда время истечёт — автоматический переход к следующему.',
+        '📊 Результат из 50 баллов. 25+ баллов — уровень пройден!',
+        '💪 Для подготовки повторите теорию и тесты предыдущих 13 уровней.',
+        '🧠 Вопросы охватывают все темы: основы электричества, источники, типы тока, цепи, единицы, закон Ома, домашнее электричество, станции, экология, устройства, технологии и история.',
+        '🏆 Удачи! Вы станете настоящим экспертом по электричеству!',
+      ],
+      en: [
+        '🎓 This is the final exam! 50 questions from all topics across levels 1-13.',
+        '⏱️ You have 60 seconds per question. When time runs out — automatic transition to the next.',
+        '📊 Your score is out of 50 points. 25+ points — level passed!',
+        '💪 To prepare, review the theory and tests of all 13 previous levels.',
+        '🧠 Questions cover all topics: electricity basics, sources, current types, circuits, units, Ohm\'s Law, home electricity, stations, ecology, devices, technology, and history.',
+        '🏆 Good luck! You will become a true electricity expert!',
+      ],
+    },
+    visual: {
+      kg: ['🎓 ЖЫЙЫНТЫК ЭКЗАМЕН ЭРЕЖЕЛЕРИ:', '━━━━━━━━━━━━━━━━━━━━━', '📝 50 суроо — бардык темалардан', '⏱️ Ар бир суроого 60 секунд', '✅ 25+ туура жооп = ӨТТҮ', '❌ 24 же аз = КАЙРА АРАКЕТ', '━━━━━━━━━━━━━━━━━━━━━', '⚡ 1-баскыч: Электр негиздери', '🔋 2-баскыч: Булактар', '💡 3-баскыч: Ток түрлөрү', '🔌 4-баскыч: Чынжырлар', '📏 5-баскыч: Бирдиктер', '⚖️ 6-баскыч: Ом закону', '🏠 7-баскыч: Үй электри', '🏭 8-баскыч: Станциялар', '🌍 9-баскыч: Экология', '🔧 10-баскыч: Аппараттар', '📡 11-баскыч: Технология', '🌟 12-баскыч: Корутунду', '📜 13-баскыч: Тарых'],
+      ru: ['🎓 ПРАВИЛА ИТОГОВОГО ЭКЗАМЕНА:', '━━━━━━━━━━━━━━━━━━━━━', '📝 50 вопросов — из всех тем', '⏱️ 60 секунд на каждый вопрос', '✅ 25+ правильных = СДАЛ', '❌ 24 или меньше = ПОВТОР', '━━━━━━━━━━━━━━━━━━━━━', '⚡ Уровень 1: Основы', '🔋 Уровень 2: Источники', '💡 Уровень 3: Виды тока', '🔌 Уровень 4: Цепи', '📏 Уровень 5: Единицы', '⚖️ Уровень 6: Закон Ома', '🏠 Уровень 7: Дом', '🏭 Уровень 8: Станции', '🌍 Уровень 9: Экология', '🔧 Уровень 10: Устройства', '📡 Уровень 11: Технологии', '🌟 Уровень 12: Итог', '📜 Уровень 13: История'],
+      en: ['🎓 FINAL EXAM RULES:', '━━━━━━━━━━━━━━━━━━━━━', '📝 50 questions — from all topics', '⏱️ 60 seconds per question', '✅ 25+ correct = PASSED', '❌ 24 or less = RETRY', '━━━━━━━━━━━━━━━━━━━━━', '⚡ Level 1: Basics', '🔋 Level 2: Sources', '💡 Level 3: Current types', '🔌 Level 4: Circuits', '📏 Level 5: Units', '⚖️ Level 6: Ohm\'s Law', '🏠 Level 7: Home', '🏭 Level 8: Stations', '🌍 Level 9: Ecology', '🔧 Level 10: Devices', '📡 Level 11: Technology', '🌟 Level 12: Summary', '📜 Level 13: History'],
+    },
+    gameType: 'exam',
+    quiz: [],
   },
 ];
