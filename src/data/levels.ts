@@ -35,7 +35,7 @@ export interface LevelData {
   color: string;
   theory: Record<Language, string[]>;
   visual: Record<Language, string[]>;
-  gameType: 'quiz' | 'drag' | 'wordsearch' | 'imagefind' | 'imagematch' | 'final';
+  gameType: 'quiz' | 'drag' | 'wordsearch' | 'imagefind' | 'imagematch' | 'final' | 'exam';
   quiz: { question: Record<Language, string>; options: Record<Language, string[]>; correct: number }[];
   dragItems?: { item: Record<Language, string>; target: Record<Language, string> }[];
   words?: Record<Language, string[]>;
