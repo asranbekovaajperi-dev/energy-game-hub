@@ -171,11 +171,11 @@ export default function LevelPage() {
                   <motion.img src={level.characterImage} alt="" className="mx-auto w-24 h-24 object-contain" animate={{ scale: [1, 1.1, 1] }} transition={{ repeat: Infinity, duration: 1.5 }} />
                   <Trophy className="mx-auto h-16 w-16 text-secondary" />
                   <h3 className="text-2xl font-bold">{t('congrats')}</h3>
-                  <p className="text-lg">{t('score')}: {testScore} / {level.quiz.length}</p>
-                  {testScore >= Math.ceil(level.quiz.length * 0.5) ? (
+                  <p className="text-lg">{t('score')}: {testScore} / {levelId === 14 ? examQuestions.length : level.quiz.length}</p>
+                  {testScore >= Math.ceil((levelId === 14 ? examQuestions.length : level.quiz.length) * 0.5) ? (
                     <div className="space-y-3">
                       <p className="text-green-600 font-medium">{t('passedLevel')}</p>
-                      {levelId < 13 && (
+                      {levelId < 14 && (
                         <Button onClick={() => navigate(`/level/${levelId + 1}`)} className="electric-gradient text-primary-foreground">
                           {t('nextLevel')} <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
@@ -189,7 +189,11 @@ export default function LevelPage() {
                 </motion.div>
               ) : (
                 <motion.div key="quiz" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                  <MixedQuizGame questions={level.quiz} onComplete={handleTestComplete} />
+                  {levelId === 14 ? (
+                    <TimedExamGame questions={examQuestions} timePerQuestion={60} onComplete={handleTestComplete} />
+                  ) : (
+                    <MixedQuizGame questions={level.quiz} onComplete={handleTestComplete} />
+                  )}
                 </motion.div>
               )}
             </AnimatePresence>
