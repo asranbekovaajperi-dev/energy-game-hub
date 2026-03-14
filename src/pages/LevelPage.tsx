@@ -54,7 +54,8 @@ export default function LevelPage() {
   const handleTestComplete = (score: number) => {
     setTestScore(score);
     setTestCompleted(true);
-    if (score >= Math.ceil(level.quiz.length * 0.5)) {
+    const totalQuestions = levelId === 14 ? examQuestions.length : level.quiz.length;
+    if (score >= Math.ceil(totalQuestions * 0.5)) {
       completeLevel(levelId);
     }
   };
