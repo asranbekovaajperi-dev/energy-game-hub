@@ -94,6 +94,8 @@ export default function LevelPage() {
         return level.imageItems ? <ImageFindGame items={level.imageItems} onComplete={handleGameComplete} /> : null;
       case 'imagematch':
         return level.imageMatchItems ? <ImageMatchGame items={level.imageMatchItems} onComplete={handleGameComplete} /> : null;
+      case 'exam':
+        return <TimedExamGame questions={examQuestions} timePerQuestion={60} onComplete={handleGameComplete} />;
       case 'final':
         return <QuizGame questions={level.quiz} onComplete={handleGameComplete} />;
       default:
