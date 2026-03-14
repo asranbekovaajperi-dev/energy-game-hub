@@ -16,8 +16,9 @@ import char10 from '@/assets/characters/level10-devices.png';
 import char11 from '@/assets/characters/level11-tech.png';
 import char12 from '@/assets/characters/level12-final.png';
 import char13 from '@/assets/characters/level13-history.png';
+import char14 from '@/assets/characters/level14-exam.png';
 
-export const characterImages = [char1, char2, char3, char4, char5, char6, char7, char8, char9, char10, char11, char12, char13];
+export const characterImages = [char1, char2, char3, char4, char5, char6, char7, char8, char9, char10, char11, char12, char13, char14];
 
 export interface ImageMatchItem {
   image: string;
