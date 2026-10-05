@@ -152,6 +152,9 @@ export default function LevelPage() {
 
           <TabsContent value="visual">
             <Card className="p-6">
+              <div className="flex justify-center mb-4">
+                <motion.img src={level.animationImage} alt={level.title[lang]} width={1024} height={1024} loading="lazy" className="w-full max-w-sm rounded-2xl shadow-lg" animate={{ y: [0, -8, 0] }} transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }} />
+              </div>
               <div className="space-y-4">
                 {level.visual[lang].map((text, i) => (
                   <motion.div key={i} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.15 }} className="p-4 rounded-xl bg-muted text-center text-lg font-mono">{text}</motion.div>
@@ -161,6 +164,9 @@ export default function LevelPage() {
           </TabsContent>
 
           <TabsContent value="game">
+            <div className="flex justify-center mb-4">
+              <motion.img src={level.animationImage} alt="" width={1024} height={1024} loading="lazy" className="w-40 h-40 object-cover rounded-2xl shadow-lg" animate={{ rotate: [0, 2, -2, 0] }} transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }} />
+            </div>
             {renderGame()}
           </TabsContent>
 
