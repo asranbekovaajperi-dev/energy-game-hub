@@ -11,7 +11,7 @@ export const translations = {
   locked: { kg: 'Кулпуланган', ru: 'Заблокировано', en: 'Locked' },
   theory: { kg: '📚 Теория', ru: '📚 Теория', en: '📚 Theory' },
   visual: { kg: '🎥 Көрсөтмө', ru: '🎥 Наглядно', en: '🎥 Visual' },
-  game: { kg: '🎮 Оюн', ru: '🎮 Игра', en: '🎮 Game' },
+  game: { kg: '✍️ Тест', ru: '✍️ Тест', en: '✍️ Test' },
   test: { kg: '✅ Текшерүү', ru: '✅ Проверка', en: '✅ Test' },
   correct: { kg: 'Туура!', ru: 'Правильно!', en: 'Correct!' },
   wrong: { kg: 'Ката!', ru: 'Неправильно!', en: 'Wrong!' },
