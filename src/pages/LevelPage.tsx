@@ -140,7 +140,7 @@ export default function LevelPage() {
           <TabsContent value="theory">
             <Card className="p-6">
               <div className="flex justify-center mb-4">
-                <motion.img src={level.characterImage} alt="" className="w-24 h-24 object-contain opacity-80" animate={{ rotate: [0, 3, -3, 0] }} transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }} />
+                <motion.img src={level.animationImage} alt={level.title[lang]} width={1024} height={1024} loading="lazy" className="w-full max-w-md rounded-2xl shadow-xl" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }} whileHover={{ scale: 1.03, rotate: 1 }} />
               </div>
               <div className="space-y-4">
                 {level.theory[lang].map((text, i) => (

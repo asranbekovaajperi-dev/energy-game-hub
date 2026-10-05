@@ -17,6 +17,21 @@ import char11 from '@/assets/characters/level11-tech.png';
 import char12 from '@/assets/characters/level12-final.png';
 import char13 from '@/assets/characters/level13-history.png';
 import char14 from '@/assets/characters/level14-exam.png';
+import anim1 from '@/assets/animations/level1-anim.png';
+import anim2 from '@/assets/animations/level2-anim.png';
+import anim3 from '@/assets/animations/level3-anim.png';
+import anim4 from '@/assets/animations/level4-anim.png';
+import anim5 from '@/assets/animations/level5-anim.png';
+import anim6 from '@/assets/animations/level6-anim.png';
+import anim7 from '@/assets/animations/level7-anim.png';
+import anim8 from '@/assets/animations/level8-anim.png';
+import anim9 from '@/assets/animations/level9-anim.png';
+import anim10 from '@/assets/animations/level10-anim.png';
+import anim11 from '@/assets/animations/level11-anim.png';
+import anim12 from '@/assets/animations/level12-anim.png';
+import anim13 from '@/assets/animations/level13-anim.png';
+import anim14 from '@/assets/animations/level14-anim.png';
+
 
 export const characterImages = [char1, char2, char3, char4, char5, char6, char7, char8, char9, char10, char11, char12, char13, char14];
 
@@ -30,6 +45,7 @@ export interface LevelData {
   id: number;
   icon: string;
   characterImage: string;
+  animationImage: string;
   title: Record<Language, string>;
   subtitle: Record<Language, string>;
   color: string;
@@ -46,7 +62,7 @@ export interface LevelData {
 
 export const levels: LevelData[] = [
   {
-    id: 1, icon: '⚡', characterImage: char1, color: 'from-blue-500 to-cyan-400',
+    id: 1, icon: '⚡', characterImage: char1, animationImage: anim1, color: 'from-blue-500 to-cyan-400',
     title: { kg: 'Электр деген эмне?', ru: 'Что такое электричество?', en: 'What is Electricity?' },
     subtitle: { kg: 'Негизги түшүнүк', ru: 'Основные понятия', en: 'Basic concepts' },
     theory: {
@@ -128,7 +144,7 @@ export const levels: LevelData[] = [
     categoryItems: categoryItems1,
   },
   {
-    id: 2, icon: '🔋', characterImage: char2, color: 'from-green-500 to-emerald-400',
+    id: 2, icon: '🔋', characterImage: char2, animationImage: anim2, color: 'from-green-500 to-emerald-400',
     title: { kg: 'Электр энергиянын булактары', ru: 'Источники электроэнергии', en: 'Sources of Electricity' },
     subtitle: { kg: 'Суу, шамал, күн, атом', ru: 'Вода, ветер, солнце, атом', en: 'Water, wind, sun, atom' },
     theory: {
@@ -210,7 +226,7 @@ export const levels: LevelData[] = [
     ],
   },
   {
-    id: 3, icon: '💡', characterImage: char3, color: 'from-yellow-400 to-orange-400',
+    id: 3, icon: '💡', characterImage: char3, animationImage: anim3, color: 'from-yellow-400 to-orange-400',
     title: { kg: 'Токтун түрлөрү', ru: 'Виды тока', en: 'Types of Current' },
     subtitle: { kg: 'Туруктуу жана өзгөрмө ток', ru: 'Постоянный и переменный ток', en: 'DC and AC current' },
     theory: {
@@ -279,7 +295,7 @@ export const levels: LevelData[] = [
     ],
   },
   {
-    id: 4, icon: '🔌', characterImage: char4, color: 'from-purple-500 to-pink-400',
+    id: 4, icon: '🔌', characterImage: char4, animationImage: anim4, color: 'from-purple-500 to-pink-400',
     title: { kg: 'Электр чынжыры', ru: 'Электрическая цепь', en: 'Electric Circuit' },
     subtitle: { kg: 'Жөнөкөй электр чынжыры', ru: 'Простая электрическая цепь', en: 'Simple electric circuit' },
     theory: {
@@ -355,7 +371,7 @@ export const levels: LevelData[] = [
     ],
   },
   {
-    id: 5, icon: '📏', characterImage: char5, color: 'from-teal-500 to-cyan-400',
+    id: 5, icon: '📏', characterImage: char5, animationImage: anim5, color: 'from-teal-500 to-cyan-400',
     title: { kg: 'Өлчөө бирдиктери', ru: 'Единицы измерения', en: 'Units of Measurement' },
     subtitle: { kg: 'Вольт, Ампер, Ом, Ватт', ru: 'Вольт, Ампер, Ом, Ватт', en: 'Volt, Ampere, Ohm, Watt' },
     theory: {
@@ -431,7 +447,7 @@ export const levels: LevelData[] = [
     ],
   },
   {
-    id: 6, icon: '⚖️', characterImage: char6, color: 'from-indigo-500 to-blue-400',
+    id: 6, icon: '⚖️', characterImage: char6, animationImage: anim6, color: 'from-indigo-500 to-blue-400',
     title: { kg: 'Ом мыйзамы', ru: 'Закон Ома', en: "Ohm's Law" },
     subtitle: { kg: 'Формула, эсептөөлөр', ru: 'Формула, расчёты', en: 'Formula, calculations' },
     theory: {
@@ -489,7 +505,7 @@ export const levels: LevelData[] = [
     categoryItems: categoryItems6,
   },
   {
-    id: 7, icon: '🏠', characterImage: char7, color: 'from-amber-500 to-yellow-400',
+    id: 7, icon: '🏠', characterImage: char7, animationImage: anim7, color: 'from-amber-500 to-yellow-400',
     title: { kg: 'Үйдөгү электр', ru: 'Электричество дома', en: 'Electricity at Home' },
     subtitle: { kg: 'Розетка, коопсуздук', ru: 'Розетка, безопасность', en: 'Outlets, safety' },
     theory: {
@@ -563,7 +579,7 @@ export const levels: LevelData[] = [
     categoryItems: categoryItems7,
   },
   {
-    id: 8, icon: '🏭', characterImage: char8, color: 'from-slate-500 to-gray-400',
+    id: 8, icon: '🏭', characterImage: char8, animationImage: anim8, color: 'from-slate-500 to-gray-400',
     title: { kg: 'Электр станциялары', ru: 'Электростанции', en: 'Power Plants' },
     subtitle: { kg: 'ГЭС, ТЭС, АЭС', ru: 'ГЭС, ТЭС, АЭС', en: 'HEP, TPP, NPP' },
     theory: {
@@ -628,7 +644,7 @@ export const levels: LevelData[] = [
     ],
   },
   {
-    id: 9, icon: '🌍', characterImage: char9, color: 'from-green-500 to-lime-400',
+    id: 9, icon: '🌍', characterImage: char9, animationImage: anim9, color: 'from-green-500 to-lime-400',
     title: { kg: 'Электр жана экология', ru: 'Электричество и экология', en: 'Electricity & Ecology' },
     subtitle: { kg: 'Жашыл энергия, үнөмдөө', ru: 'Зелёная энергия, экономия', en: 'Green energy, saving' },
     theory: {
@@ -689,7 +705,7 @@ export const levels: LevelData[] = [
     categoryItems: categoryItems9,
   },
   {
-    id: 10, icon: '🔧', characterImage: char10, color: 'from-red-500 to-orange-400',
+    id: 10, icon: '🔧', characterImage: char10, animationImage: anim10, color: 'from-red-500 to-orange-400',
     title: { kg: 'Электр аспаптары', ru: 'Электрические приборы', en: 'Electric Devices' },
     subtitle: { kg: 'Мотор, генератор, трансформатор', ru: 'Мотор, генератор, трансформатор', en: 'Motor, generator, transformer' },
     theory: {
@@ -764,7 +780,7 @@ export const levels: LevelData[] = [
     ],
   },
   {
-    id: 11, icon: '📡', characterImage: char11, color: 'from-violet-500 to-purple-400',
+    id: 11, icon: '📡', characterImage: char11, animationImage: anim11, color: 'from-violet-500 to-purple-400',
     title: { kg: 'Электр жана технология', ru: 'Электричество и технологии', en: 'Electricity & Technology' },
     subtitle: { kg: 'Компьютер, телефон, интернет', ru: 'Компьютер, телефон, интернет', en: 'Computer, phone, internet' },
     theory: {
@@ -856,7 +872,7 @@ export const levels: LevelData[] = [
     ],
   },
   {
-    id: 12, icon: '🎓', characterImage: char12, color: 'from-yellow-500 to-red-500',
+    id: 12, icon: '🎓', characterImage: char12, animationImage: anim12, color: 'from-yellow-500 to-red-500',
     title: { kg: 'Жыйынтык', ru: 'Итоговый', en: 'Final' },
     subtitle: { kg: 'Бардык билимди бышыктоо', ru: 'Закрепление всех знаний', en: 'Consolidate all knowledge' },
     theory: {
@@ -929,7 +945,7 @@ export const levels: LevelData[] = [
     ],
   },
   {
-    id: 13, icon: '📜', characterImage: char13, color: 'from-amber-600 to-yellow-500',
+    id: 13, icon: '📜', characterImage: char13, animationImage: anim13, color: 'from-amber-600 to-yellow-500',
     title: { kg: 'Электрдин тарыхы', ru: 'История электричества', en: 'History of Electricity' },
     subtitle: { kg: 'Ким ойлоп тапкан, кантип ачылган', ru: 'Кто изобрёл, как открыли', en: 'Who invented, how it was discovered' },
     theory: {
@@ -1067,7 +1083,7 @@ export const levels: LevelData[] = [
     ],
   },
   {
-    id: 14, icon: '🎓', characterImage: char14, color: 'from-purple-600 to-indigo-500',
+    id: 14, icon: '🎓', characterImage: char14, animationImage: anim14, color: 'from-purple-600 to-indigo-500',
     title: { kg: 'Жыйынтык экзамен', ru: 'Итоговый экзамен', en: 'Final Exam' },
     subtitle: { kg: '50 суроолук тест — 1 мүнөт ар бир суроого', ru: '50 вопросов — 1 минута на каждый', en: '50 questions — 1 minute each' },
     theory: {
