@@ -87,7 +87,7 @@ export default function LevelMap() {
 
         {/* Level Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {levels.map((level, i) => {
+          {levels.filter(l => l.id !== 14).map((level, i) => {
             const unlocked = isUnlocked(level.id);
             const completed = isCompleted(level.id);
 
