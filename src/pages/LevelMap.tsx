@@ -87,7 +87,7 @@ export default function LevelMap() {
 
         {/* Level Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {levels.map((level, i) => {
+          {levels.filter(l => l.id !== 14).map((level, i) => {
             const unlocked = isUnlocked(level.id);
             const completed = isCompleted(level.id);
 
@@ -106,6 +106,19 @@ export default function LevelMap() {
                 >
                   {/* Gradient header */}
                   <div className={`h-2 bg-gradient-to-r ${level.color}`} />
+
+                  {/* 3D theme image on the card */}
+                  <div className="relative h-32 overflow-hidden">
+                    <motion.img
+                      src={level.animationImage}
+                      alt={level.title[lang]}
+                      width={1024} height={1024} loading="lazy"
+                      className="w-full h-full object-cover"
+                      whileHover={{ scale: 1.08 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                    <div className={`absolute inset-0 bg-gradient-to-t from-background/60 to-transparent`} />
+                  </div>
 
                   <div className="p-5">
                     <div className="flex items-start justify-between mb-3">
